@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   img_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 17:27:48 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/03 22:05:09 by llepiney         ###   ########.fr       */
+/*   Created: 2022/05/03 21:18:04 by llepiney          #+#    #+#             */
+/*   Updated: 2022/05/03 22:02:10 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int argc, char **argv)
+void	put_image(t_solong *s)
 {
-	t_solong	*s;
+	int	x;
 
-	(void)argc;
-	s->mlx_ptr = mlx_init();
-	s->mlx_win = mlx_new_window(mlx_ptr, 1920, 1080, "Hello world!");
-	s->map = map_create(argv);
-	put_image(s);
-	if (!wall_valid(s->map) || !is_rect(s->map))
-	{
-		printf("Error wall or rect.\n");
-		return (0);
-	}
-	fill_map(s);
-	mlx_loop(s->mlx_ptr);
-	return (0);
+	x = 32;
+	s->img1 = mlx_xpm_file_to_image(s->mlx_ptr, "image/grass.xpm", &x, &x);
+	s->img2 = mlx_xpm_file_to_image(s->mlx_ptr, "image/stone.xpm", &x, &x);
+	s->img3 = mlx_xpm_file_to_image(s->mlx_ptr, "image/Background.xpm", &x, &x);
 }

@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 16:28:13 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/03 15:02:07 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/03 22:03:51 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,16 @@
 #  define BUFFER_SIZE 1000
 # endif
 
+typedef struct s_solong
+{
+	char	**map;
+	void	*mlx_ptr;
+	void	*mlx_win;
+	void	*img1;
+	void	*img2;
+	void	*img3;
+}	t_solong;
+
 //**********************GNL***********************
 char	*ft_strjoin(char const *s1, const char *s2);
 size_t	ft_strlen(const char *str);
@@ -54,5 +64,9 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup2(const char *s);
 int	name_check(char *arg);
 char	**map_create(char **argv);
+
+
+void	put_image(t_solong *s);
+void	fill_map(t_solong *s);
 
 #endif

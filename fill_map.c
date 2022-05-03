@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   fill_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 17:27:48 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/03 22:05:09 by llepiney         ###   ########.fr       */
+/*   Created: 2022/05/03 21:32:57 by llepiney          #+#    #+#             */
+/*   Updated: 2022/05/03 22:06:06 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	fill_map(t_solong *s)
 {
-	t_solong	*s;
+	int	i;
+	int	j;
 
-	(void)argc;
-	s->mlx_ptr = mlx_init();
-	s->mlx_win = mlx_new_window(mlx_ptr, 1920, 1080, "Hello world!");
-	s->map = map_create(argv);
-	put_image(s);
-	if (!wall_valid(s->map) || !is_rect(s->map))
+	i = 0;
+	while (s->map[i])
 	{
-		printf("Error wall or rect.\n");
-		return (0);
+		j = 0;
+		while (s->map[i][j])
+		{
+			if (s->map[i][j] == '1')
+				mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->img1, j * 32, i * 32);
+			// printf("line[%i] : %s\n", i, map[i]);
+			j++;
+		}
+		i++;
 	}
-	fill_map(s);
-	mlx_loop(s->mlx_ptr);
-	return (0);
 }

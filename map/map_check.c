@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 18:07:09 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/03 17:15:21 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/03 20:22:18 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ int	wall_valid(char **map)
 	while (map[i + 1] != NULL)
 	{
 		j = 0;
-		while (map[i][j] && map[i][j] != '\n')
+		while (map[i][j])
 		{
-			if ((i == 0 || map[i + 1] == NULL) && map[i][j] != 'w')
+			if ((i == 0 || map[i + 1] == NULL) && map[i][j] != 'w' && map[i][j] != '\n')
 				return (0);
-			if ((j == 0 || j == (col_numb(map) - 1)) && map[i][j] != 'w')
+			if ((j == 0 || map[i][j + 1] == '\0' || map[i][j + 1] == '\n') && map[i][j] != 'w' && map[i][j] != '\n')
 				return (0);
 			j++;
 		}
