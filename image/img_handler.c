@@ -17,7 +17,9 @@ void	put_image(t_solong *s)
 	int	x;
 
 	x = 32;
-	s->img1 = mlx_xpm_file_to_image(s->mlx_ptr, "image/grass.xpm", &x, &x);
-	s->img2 = mlx_xpm_file_to_image(s->mlx_ptr, "image/stone.xpm", &x, &x);
-	s->img3 = mlx_xpm_file_to_image(s->mlx_ptr, "image/Background.xpm", &x, &x);
+	s->img2 = mlx_xpm_file_to_image(s->mlx_ptr, "image/grass.xpm", &x, &x);
+	// s->img2 = mlx_xpm_file_to_image(s->mlx_ptr, "image/stone.xpm", &x, &x);
+	s->img1 = mlx_xpm_file_to_image(s->mlx_ptr, "image/wall.xpm", &x, &x);
+// (void)x;
+// (void)s;
 }

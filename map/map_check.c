@@ -42,25 +42,27 @@ static int	len_n(char *str)
 	return (i);
 }
 
-int	wall_valid(char **map)
+int	wall_valid(char **map, t_solong *s)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (map[i + 1] != NULL)
+	while (map[i])
 	{
 		j = 0;
 		while (map[i][j])
 		{
-			if ((i == 0 || map[i + 1] == NULL) && map[i][j] != 'w' && map[i][j] != '\n')
+			if ((i == 0 || map[i + 1] == NULL) && map[i][j] != '1' && map[i][j] != '\n')
 				return (0);
-			if ((j == 0 || map[i][j + 1] == '\0' || map[i][j + 1] == '\n') && map[i][j] != 'w' && map[i][j] != '\n')
+			if ((j == 0 || map[i][j + 1] == '\0' || map[i][j + 1] == '\n') && map[i][j] != '1' && map[i][j] != '\n')
 				return (0);
 			j++;
 		}
 		i++;
 	}
+	s->length = j * 32;
+	s->width = i * 32;
 	return (1);
 }
 

@@ -17,15 +17,17 @@ int	main(int argc, char **argv)
 	t_solong	*s;
 
 	(void)argc;
-	s->mlx_ptr = mlx_init();
-	s->mlx_win = mlx_new_window(mlx_ptr, 1920, 1080, "Hello world!");
+	s = malloc(sizeof(t_solong *));
 	s->map = map_create(argv);
-	put_image(s);
-	if (!wall_valid(s->map) || !is_rect(s->map))
+	// (void)argv;
+	if (!wall_valid(s->map, s) || !is_rect(s->map))
 	{
 		printf("Error wall or rect.\n");
 		return (0);
 	}
+	s->mlx_ptr = mlx_init();
+	put_image(s);
+	s->mlx_win = mlx_new_window(s->mlx_ptr, s->length, s->width, "so_long");
 	fill_map(s);
 	mlx_loop(s->mlx_ptr);
 	return (0);

@@ -19,6 +19,7 @@ RM            =    rm -f
 SRCS        =   so_long.c \
 				gnl/gnl.c gnl/gnl_utils.c \
 				map/map_check.c map/map_handler.c map/map_utils.c \
+				image/img_handler.c map/fill_map.c \
 				# utils/ft_strjoin.c \
 				# utils/ft_strlen.c \
 				# utils/ft_split.c \

@@ -36,6 +36,8 @@
 
 typedef struct s_solong
 {
+	int		length;
+	int		width;
 	char	**map;
 	void	*mlx_ptr;
 	void	*mlx_win;
@@ -57,7 +59,7 @@ char	*ft_line(char **line, char **to_read);
 
 int	line_numb(char **map);
 int	col_numb(char **map);
-int	wall_valid(char **map);
+int	wall_valid(char **map, t_solong *s);
 int	is_rect(char **map);
 int	ft_strlen2(char *str);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
