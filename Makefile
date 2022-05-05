@@ -6,7 +6,7 @@
 #    By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 16:07:53 by llepiney          #+#    #+#              #
-#    Updated: 2022/04/29 17:26:34 by llepiney         ###   ########.fr        #
+#    Updated: 2022/05/05 23:31:08 by llepiney         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,12 @@ FLAGS        =    -Wall -Werror -Wextra
 
 RM            =    rm -f
 
-SRCS        =   so_long.c \
+SRCS        =   $(addprefix mandatory/, \
+				so_long.c \
 				gnl/gnl.c gnl/gnl_utils.c \
 				map/map_check.c map/map_handler.c map/map_utils.c \
-				image/img_handler.c map/fill_map.c \
+				image/put_image.c map/fill_map.c map/count_check.c\
+				key_act.c move.c game_over.c)
 				# utils/ft_strjoin.c \
 				# utils/ft_strlen.c \
 				# utils/ft_split.c \
@@ -30,7 +32,7 @@ SRCS        =   so_long.c \
 				# trap.c \
 				# gob.c \
 				# gob_moove.c \
-				# game_over.c \
+				# game_over.c
 
 OBJS        =    ${SRCS:.c=.o}
 

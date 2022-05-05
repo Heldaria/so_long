@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 16:28:13 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/03 22:03:51 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/05 23:50:51 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,20 @@ typedef struct s_solong
 {
 	int		length;
 	int		width;
+	int		x;
+	int		y;
+	int		ecount;
+	int		ccount;
+	int		pcount;
+	int		item_count;
 	char	**map;
 	void	*mlx_ptr;
 	void	*mlx_win;
-	void	*img1;
-	void	*img2;
-	void	*img3;
+	void	*grass;
+	void	*wall;
+	void	*chkn;
+	void	*hole;
+	void	*buck[4];
 }	t_solong;
 
 //**********************GNL***********************
@@ -59,8 +67,8 @@ char	*ft_line(char **line, char **to_read);
 
 int	line_numb(char **map);
 int	col_numb(char **map);
-int	wall_valid(char **map, t_solong *s);
-int	is_rect(char **map);
+int	map_check(char **map, t_solong *s);
+int	is_rect(char **map, t_solong *s);
 int	ft_strlen2(char *str);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup2(const char *s);
@@ -70,5 +78,14 @@ char	**map_create(char **argv);
 
 void	put_image(t_solong *s);
 void	fill_map(t_solong *s);
+void 	count_check(int i, int j, t_solong *s);
+
+int    key_act(int key, t_solong *s);
+void 	move_up(t_solong *s);
+void 	move_down(t_solong *s);
+void 	move_left(t_solong *s);
+void 	move_right(t_solong *s);
+
+int close_window(t_solong *s);
 
 #endif
