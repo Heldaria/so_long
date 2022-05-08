@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 17:27:48 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/06 00:15:42 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/08 03:09:32 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,29 @@
 
 int	main(int argc, char **argv)
 {
-	t_solong	*s;
+	t_solong	s;
 
-	(void)argc;
-	s = malloc(sizeof(t_solong *));
-	s->map = map_create(argv);
-	(void)argv;
-	if (!is_rect(s->map, s) || !map_check(s->map, s))
+	if (argc != 2)
+		return (error_msg("Error : wrong number of arguments.\n"));
+	if (!name_check(argv[1]))
+		return (error_msg("Error : invalid map format.\n"));
+	s.map = map_create(argv);
+	if (!s.map)
+		return (error_msg("Error : wrong or empty file.\n"));
+	if (!is_rect(s.map) || !map_check(s.map, &s))
 	{
-		printf("Error wall or rect.\n");
+		free_tab(s.map);
 		return (0);
 	}
-	s->mlx_ptr = mlx_init();
-	put_image(s);
-	s->mlx_win = mlx_new_window(s->mlx_ptr, s->length, s->width, "so_long");
-	fill_map(s);
-	mlx_key_hook(s->mlx_win, key_act, s);
-	mlx_loop(s->mlx_ptr);
+	s.mlx_ptr = mlx_init();
+	put_image(&s);
+	if (!safe_image(&s))
+		return (0);
+	s.mlx_win = mlx_new_window(s.mlx_ptr, s.length, s.width, "so_long");
+	if (fill_map(&s) == 0)
+		return (error_msg("Error : wrong map elements.\n"));
+	mlx_hook(s.mlx_win, 17, 0, close_window, &s);
+	mlx_key_hook(s.mlx_win, key_act, &s);
+	mlx_loop(s.mlx_ptr);
 	return (0);
 }

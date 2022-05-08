@@ -6,13 +6,13 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 21:32:57 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/05 23:52:10 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/08 03:13:51 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-void	fill_map(t_solong *s)
+int	fill_map(t_solong *s)
 {
 	int	i;
 	int	j;
@@ -33,10 +33,11 @@ void	fill_map(t_solong *s)
 				mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->chkn, j * 32, i * 32);
 			else if (s->map[i][j] == 'E')
 				mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->hole, j * 32, i * 32);
+			else if (!is_in(s->map[i][j], "10PCETMRBXG"))
+				return (0);
 			j++;
 		}
 		i++;
 	}
-	// s->map[i][j] = '0';
-	// mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->img2, 0, 0);
+	return (1);
 }

@@ -6,11 +6,20 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 18:40:19 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/05 23:16:47 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/07 22:25:41 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
+
+void	init_value(t_solong *s)
+{
+	s->ccount = 0;
+	s->ecount = 0;
+	s->pcount = 0;
+	s->item_count = 0;
+	s->mvt = 0;
+}
 
 int	name_check(char *arg)
 {
@@ -19,6 +28,8 @@ int	name_check(char *arg)
 
 	len = ft_strlen2(arg);
 	i = 0;
+	if (!ft_strncmp(arg, ".ber", 4))
+		return (0);
 	if (arg[i] == '.' || arg[i] == '\0')
 			return (0);
 	while (i < len - 4)
@@ -39,6 +50,8 @@ static int	count_line(char **argv)
 
 	i = 0;
 	fd = open(argv[1], O_RDONLY);
+	if (fd == -1 || fd == 1)
+		return (0);
 	buf = get_next_line(fd);
 	while (buf != NULL)
 	{
@@ -59,12 +72,10 @@ char	**map_create(char **argv)
 	int		fd;
 	int		len;
 
-	if (!name_check(argv[1]))
-		return (0);
 	fd = open(argv[1], O_RDONLY);
-	if (fd == -1 || fd == 1)
-		return (0);
 	len = count_line(argv);
+	if (fd == -1 || fd == 1 || len == 0)
+		return (0);
 	map = malloc(sizeof(char *) * (len + 1));
 	if (!map)
 		return (NULL);
