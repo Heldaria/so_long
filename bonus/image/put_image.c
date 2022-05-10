@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 21:18:04 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/08 03:16:26 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/10 23:07:37 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ static void	put_image2(t_solong *s)
 
 	x = 32;
 	s->poison = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/poisongrass.xpm", &x, &x);
+	s->white = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/white.xpm", &x, &x);
+	s->lose = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/lose.xpm", &x, &x);
+	s->win = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/win.xpm", &x, &x);
 	s->ghost[0] = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/ghostfront1.xpm", &x, &x);
 	s->ghost[1] = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/ghostfront2.xpm", &x, &x);
 	s->ghost[2] = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/ghostfront3.xpm", &x, &x);
@@ -41,7 +44,7 @@ void	put_image(t_solong *s)
 	s->wall = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/sakura.xpm", &x, &x);
 	s->chkn = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/chkngrass.xpm", &x, &x);
 	s->hole = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/holegrass.xpm", &x, &x);
-	s->tree = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/contreegrass.xpm", &x, &x);
+	s->tree = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/conetreegrass.xpm", &x, &x);
 	s->root = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/rootgrass.xpm", &x, &x);
 	s->bush = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/bushgrass.xpm", &x, &x);
 	s->rock = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/rockgrass.xpm", &x, &x);
@@ -53,7 +56,7 @@ void	put_image(t_solong *s)
 	s->buck[5] = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/buckback3.xpm", &x, &x);
 	s->buck[6] = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/buckleft1.xpm", &x, &x);
 	s->buck[7] = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/buckleft2.xpm", &x, &x);
-	s->buck[8] = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/buckleft2.xpm", &x, &x);
+	s->buck[8] = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/buckleft3.xpm", &x, &x);
 	s->buck[9] = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/buckright1.xpm", &x, &x);
 	s->buck[10] = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/buckright2.xpm", &x, &x);
 	s->buck[11] = mlx_xpm_file_to_image(s->mlx_ptr, "bonus/image/buckright3.xpm", &x, &x);
@@ -65,14 +68,19 @@ int	safe_image(t_solong *s)
 	int	i;
 
 	if (!(s->grass && s->wall && s->chkn && s->hole))
-		return (error_msg("Error : could not create image.\n"));
+		return (error_msg("Error : could not create image1.\n"));
 	if (!(s->tree && s->root && s->bush && s->rock))
-		return (error_msg("Error : could not create image.\n"));
+		return (error_msg("Error : could not create image2.\n"));
+	if (!(s->white && s->lose && s->win))
+		return (error_msg("Error : could not create image2.\n"));
 	i = 0;
 	while (i < 12)
 	{
 		if (!s->buck[i] || !s->ghost[i])
-			return (error_msg("Error : could not create image.\n"));
+		{
+			printf("%d\n", i);
+			return (error_msg("Error : could not create image3.\n"));
+		}
 		i++;
 	}
 	return (1);

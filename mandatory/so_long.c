@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 17:27:48 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/08 03:09:32 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/10 21:25:57 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 		return (error_msg("Error : wrong number of arguments.\n"));
 	if (!name_check(argv[1]))
 		return (error_msg("Error : invalid map format.\n"));
+	init_value(&s);
 	s.map = map_create(argv);
 	if (!s.map)
 		return (error_msg("Error : wrong or empty file.\n"));

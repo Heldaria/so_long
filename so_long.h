@@ -6,14 +6,14 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 16:28:13 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/08 03:38:13 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/11 01:50:26 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# define FRAME_RATE 3000
-# define TRAP_RATE 25
+# define FRAME_RATE 8000
+# define TRAP_RATE 40
 # define FRAME 1536
 
 # include <sys/types.h>
@@ -50,8 +50,7 @@ typedef struct s_solong
 	void	*wall;
 	void	*chkn;
 	void	*hole;
-	void	*mbuck[4];
-
+	
 	void	*buck[12];
 	void	*ghost[12];
 	void	*bush;
@@ -59,6 +58,9 @@ typedef struct s_solong
 	void	*tree;
 	void	*rock;
 	void	*poison;
+	void	*white;
+	void	*lose;
+	void	*win;
 	int		end;
 	int		frame;
 	int		ghost_rate;
@@ -91,6 +93,8 @@ char	*ft_strdup2(const char *s);
 int	name_check(char *arg);
 char	**map_create(char **argv);
 void	free_tab(char **tab);
+char	*ft_itoa(int n);
+char	*ft_strdup(char *src);
 
 //*****************IMG_HANDLING**************************
 void	put_image(t_solong *s);
@@ -126,5 +130,8 @@ void	ghost_display_left(t_solong *s, int i, int j);
 void	ghost_display_right(t_solong *s, int i, int j);
 void	buck_display(t_solong *s);
 void	move_entity(t_solong *s, int i, int j, int g);
+void	game_over(t_solong *s);
+void    mvt_display(int mvt);
+char	*ft_strjoin2(char *s1, char *s2);
 
 #endif

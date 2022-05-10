@@ -1,5 +1,5 @@
 /* XPM */
-static char *buckleft1[] = {
+static char *result[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 15 1 ",
 "  c #96BC20",

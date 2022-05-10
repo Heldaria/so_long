@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 22:53:02 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/08 02:25:10 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/11 01:27:12 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,39 @@ void	free_tab(char **tab)
 	free(tab);
 }
 
+void	game_over(t_solong *s)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	(void)i;
+	(void)j;
+	mlx_clear_window(s->mlx_ptr, s->mlx_win);
+	// while (i < s->width)
+	// {
+	// 	j = 0;
+	// 	while (j < s->length)
+	// 	{
+	// 		mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->white,
+	// 		j * 32, i * 32);
+	// 		j++;
+	// 	}
+	// 	i++;
+	// }
+	if (s->end == 1)
+	{
+		mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->lose,
+			(s->width / 2) - 248, (s->length / 2) - 136);
+	}
+	// else if (s->end == 2)
+	// {
+	// 	mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->win,
+	// 		(s->width / 2) - 193, (s->length / 2) - 125);
+	// }
+	s->end = 3;
+}
+
 static void	destroy_all(t_solong *s)
 {
 	int	i;
@@ -38,16 +71,20 @@ static void	destroy_all(t_solong *s)
 	mlx_destroy_image(s->mlx_ptr, s->rock);
 	mlx_destroy_image(s->mlx_ptr, s->root);
 	mlx_destroy_image(s->mlx_ptr, s->bush);
+	mlx_destroy_image(s->mlx_ptr, s->white);
+	mlx_destroy_image(s->mlx_ptr, s->lose);
+	mlx_destroy_image(s->mlx_ptr, s->win);
 	i = 0;
 	while (i < 12)
 		mlx_destroy_image(s->mlx_ptr, s->buck[i++]);
+	i = 0;
 	while (i < 12)
 		mlx_destroy_image(s->mlx_ptr, s->ghost[i++]);
 }
 
 int close_window(t_solong *s)
 {
-	if (s->end == 1)
+	if (s->end == 3)
 	{
 		free_tab(s->map);
 		destroy_all(s);
@@ -58,8 +95,5 @@ int close_window(t_solong *s)
 		free(s->mlx_ptr);
     	exit(0);
 	}
-	else
-	{
-		exit(0);
-	}
+	return (0);
 }

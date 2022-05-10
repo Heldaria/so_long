@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 21:32:57 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/08 03:13:51 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/10 21:25:35 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	fill_map(t_solong *s)
 				mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->chkn, j * 32, i * 32);
 			else if (s->map[i][j] == 'E')
 				mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->hole, j * 32, i * 32);
-			else if (!is_in(s->map[i][j], "10PCETMRBXG"))
+			else if (!is_in(s->map[i][j], "10PCE\n"))
 				return (0);
 			j++;
 		}

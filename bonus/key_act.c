@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_act.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:11:09 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/07 07:02:10 by loan             ###   ########.fr       */
+/*   Updated: 2022/05/11 01:30:53 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int  is_in(char c, char *str)
 
 int   key_act(int key, t_solong *s)
 {
-    if (is_in(key, "wasd"))
+    if (is_in(key, "wasd") && s->end == 0)
     {
         if (key == 'w')
             move_up(s);

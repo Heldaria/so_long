@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 17:27:48 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/08 03:28:23 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/11 01:15:44 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	loop(t_solong *s)
 			s->ghost_rate++;
 			s->rate = 0;
 			s->frame++;
+			buck_display(s);
 			if (s->frame == FRAME)
 				s->frame = 0;
-			buck_display(s);
 			if (s->ghost_nb && s->ghost_rate == (TRAP_RATE / s->ghost_nb))
 			{
 				s->ghost_rate = 0;
@@ -34,7 +34,7 @@ int	loop(t_solong *s)
 		}
 	}
 	else if (s->end == 1 || s->end == 2)
-		close_window(s);
+		game_over(s);
 	return (1);
 }
 
@@ -46,6 +46,7 @@ int	main(int argc, char **argv)
 		return (error_msg("Error : wrong number of arguments.\n"));
 	if (!name_check(argv[1]))
 		return (error_msg("Error : invalid map format.\n"));
+	init_value(&s);
 	s.map = map_create(argv);
 	if (!s.map)
 		return (error_msg("Error : wrong or empty file.\n"));

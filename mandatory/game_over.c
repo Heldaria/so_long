@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_over.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
+/*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 22:53:02 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/05 23:17:50 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/09 07:31:24 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,14 @@ void	free_tab(char **tab)
 
 static void	destroy_all(t_solong *s)
 {
-	int	i;
-
 	mlx_destroy_image(s->mlx_ptr, s->wall);
 	mlx_destroy_image(s->mlx_ptr, s->grass);
 	mlx_destroy_image(s->mlx_ptr, s->hole);
 	mlx_destroy_image(s->mlx_ptr, s->chkn);
-	i = 0;
-	while (i < 4)
-		mlx_destroy_image(s->mlx_ptr, s->buck[i++]);
+	mlx_destroy_image(s->mlx_ptr, s->buck[0]);
+	mlx_destroy_image(s->mlx_ptr, s->buck[3]);
+	mlx_destroy_image(s->mlx_ptr, s->buck[6]);
+	mlx_destroy_image(s->mlx_ptr, s->buck[9]);
 }
 
 int close_window(t_solong *s)

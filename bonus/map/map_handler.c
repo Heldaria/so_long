@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
+/*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 18:40:19 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/08 03:33:51 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/10 05:34:55 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	init_value(t_solong *s)
 	s->rate = 0;
 	s->ghost_rate = 0;
 	s->ghost_nb = 0;
+	s->frame = 0;
 }
 
 int	name_check(char *arg)

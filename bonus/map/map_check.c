@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
+/*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 18:07:09 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/08 03:33:41 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/10 05:37:26 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	map_check(char **map, t_solong *s)
 		i++;
 	}
 	if (s->ccount == 0 || s->ecount == 0 || s->pcount != 1)
-		return (error_msg("Error : wrong map element(s).\n"));
+		return (error_msg("Error : wrong number of map elements.\n"));
 	s->length = j * 32;
 	s->width = i * 32;
 	return (1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
+/*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:30:26 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/07 21:45:13 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/09 06:49:51 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void move_up(t_solong *s)
             s->item_count += 1;
             s->map[s->x - 1][s->y] = '0';
         }
-        mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->buck[1], s->y * 32, (s->x - 1) * 32);
+        mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->buck[3], s->y * 32, (s->x - 1) * 32);
         mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->grass, s->y * 32, s->x * 32);
         s->x -= 1;
         s->mvt++;
@@ -61,7 +61,7 @@ void move_left(t_solong *s)
             s->item_count += 1;
             s->map[s->x][s->y- 1] = '0';
         }
-        mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->buck[2], (s->y - 1) * 32, s->x * 32);
+        mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->buck[6], (s->y - 1) * 32, s->x * 32);
         mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->grass, s->y * 32, s->x * 32);
         s->y -= 1;
         s->mvt++;
@@ -81,7 +81,7 @@ void move_right(t_solong *s)
             s->item_count += 1;
             s->map[s->x][s->y + 1] = '0';
         }
-        mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->buck[3], (s->y + 1)* 32, s->x * 32);
+        mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->buck[9], (s->y + 1)* 32, s->x * 32);
         mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->grass, s->y * 32, s->x * 32);
         s->y += 1;
         s->mvt++;

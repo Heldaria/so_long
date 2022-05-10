@@ -6,7 +6,7 @@
 #    By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 16:07:53 by llepiney          #+#    #+#              #
-#    Updated: 2022/05/08 03:09:01 by llepiney         ###   ########.fr        #
+#    Updated: 2022/05/11 01:48:36 by llepiney         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ BONUS_SRCS	= $(addprefix bonus/, \
 				map/map_check.c map/map_handler.c map/map_utils.c \
 				image/put_image.c map/fill_map.c map/count_check.c\
 				key_act.c move.c game_over.c error_msg.c \
-				ghost.c ghost_move.c buck.c ghost_display.c)
+				ghost.c ghost_move.c buck.c ghost_display.c mvt_display.c \
+				ft_strjoin2.c ft_itoa.c)
 
 OBJS        =    ${SRCS:.c=.o}
 
