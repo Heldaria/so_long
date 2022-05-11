@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 21:18:04 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/10 23:07:37 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/11 22:44:29 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,16 @@ int	safe_image(t_solong *s)
 	int	i;
 
 	if (!(s->grass && s->wall && s->chkn && s->hole))
-		return (error_msg("Error : could not create image1.\n"));
+		return (error_msg("Error : could not create image.\n"));
 	if (!(s->tree && s->root && s->bush && s->rock))
-		return (error_msg("Error : could not create image2.\n"));
+		return (error_msg("Error : could not create image.\n"));
 	if (!(s->white && s->lose && s->win))
-		return (error_msg("Error : could not create image2.\n"));
+		return (error_msg("Error : could not create image.\n"));
 	i = 0;
 	while (i < 12)
 	{
 		if (!s->buck[i] || !s->ghost[i])
-		{
-			printf("%d\n", i);
-			return (error_msg("Error : could not create image3.\n"));
-		}
+			return (error_msg("Error : could not create image.\n"));
 		i++;
 	}
 	return (1);

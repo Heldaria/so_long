@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:30:26 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/11 01:55:18 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:28:50 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void move_up(t_solong *s)
         mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->grass, s->y * 32, s->x * 32);
         s->x -= 1;
         s->mvt++;
-        mvt_display(s->mvt);
+        mvt_display(s);
         s->ori = 3;
     }
     else if (is_in(s->map[s->x - 1][s->y], "GHJKX"))
@@ -47,7 +47,7 @@ void move_down(t_solong *s)
         mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->grass, s->y * 32, s->x * 32);
         s->x += 1;
         s->mvt++;
-        mvt_display(s->mvt);
+        mvt_display(s);
         s->ori = 0;
     }
     else if (is_in(s->map[s->x + 1][s->y], "GHJKX"))
@@ -69,7 +69,7 @@ void move_left(t_solong *s)
         mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->grass, s->y * 32, s->x * 32);
         s->y -= 1;
         s->mvt++;
-        mvt_display(s->mvt);
+        mvt_display(s);
         s->ori = 6;
     }
     else if (is_in(s->map[s->x][s->y - 1], "GHJKX"))
@@ -91,7 +91,7 @@ void move_right(t_solong *s)
         mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->grass, s->y * 32, s->x * 32);
         s->y += 1;
         s->mvt++;
-        mvt_display(s->mvt);
+        mvt_display(s);
         s->ori = 9;
     }
     else if (is_in(s->map[s->x][s->y + 1], "GHJKX"))

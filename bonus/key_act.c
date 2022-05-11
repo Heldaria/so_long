@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:11:09 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/11 01:30:53 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:33:36 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ int   key_act(int key, t_solong *s)
             move_right(s);
     }
     else if (key == 65307)
+    {
+        s->end = 4;
 		close_window(s);
+    }
     return (0);
 }

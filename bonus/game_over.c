@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 22:53:02 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/11 01:27:12 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/11 23:00:14 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,27 @@ void	game_over(t_solong *s)
 	(void)i;
 	(void)j;
 	mlx_clear_window(s->mlx_ptr, s->mlx_win);
-	// while (i < s->width)
-	// {
-	// 	j = 0;
-	// 	while (j < s->length)
-	// 	{
-	// 		mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->white,
-	// 		j * 32, i * 32);
-	// 		j++;
-	// 	}
-	// 	i++;
-	// }
+	while (i < s->width)
+	{
+		j = 0;
+		while (j < s->length)
+		{
+			mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->white,
+			j * 32, i * 32);
+			j++;
+		}
+		i++;
+	}
 	if (s->end == 1)
 	{
 		mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->lose,
-			(s->width / 2) - 248, (s->length / 2) - 136);
+			(s->length / 2) - 124, (s->width / 2) - 68);
 	}
-	// else if (s->end == 2)
-	// {
-	// 	mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->win,
-	// 		(s->width / 2) - 193, (s->length / 2) - 125);
-	// }
+	else if (s->end == 2)
+	{
+		mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->win,
+			(s->length / 2) - 96, (s->width / 2) - 62);
+	}
 	s->end = 3;
 }
 
@@ -84,16 +84,13 @@ static void	destroy_all(t_solong *s)
 
 int close_window(t_solong *s)
 {
-	if (s->end == 3)
-	{
-		free_tab(s->map);
-		destroy_all(s);
-    	mlx_loop_end(s->mlx_ptr);
-		mlx_clear_window(s->mlx_ptr, s->mlx_win);
-		mlx_destroy_window(s->mlx_ptr, s->mlx_win);
-		mlx_destroy_display(s->mlx_ptr);
-		free(s->mlx_ptr);
-    	exit(0);
-	}
+	free_tab(s->map);
+	destroy_all(s);
+   	mlx_loop_end(s->mlx_ptr);
+	mlx_clear_window(s->mlx_ptr, s->mlx_win);
+	mlx_destroy_window(s->mlx_ptr, s->mlx_win);
+	mlx_destroy_display(s->mlx_ptr);
+	free(s->mlx_ptr);
+    exit(0);
 	return (0);
 }

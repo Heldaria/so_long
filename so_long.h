@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 16:28:13 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/11 01:50:26 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:27:31 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ int	name_check(char *arg);
 char	**map_create(char **argv);
 void	free_tab(char **tab);
 char	*ft_itoa(int n);
-char	*ft_strdup(char *src);
 
 //*****************IMG_HANDLING**************************
 void	put_image(t_solong *s);
@@ -131,7 +130,7 @@ void	ghost_display_right(t_solong *s, int i, int j);
 void	buck_display(t_solong *s);
 void	move_entity(t_solong *s, int i, int j, int g);
 void	game_over(t_solong *s);
-void    mvt_display(int mvt);
+void    mvt_display(t_solong *s);
 char	*ft_strjoin2(char *s1, char *s2);
 
 #endif
