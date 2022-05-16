@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 16:28:13 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/11 21:27:31 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/16 21:32:33 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_solong
 	void	*wall;
 	void	*chkn;
 	void	*hole;
-	
+
 	void	*buck[12];
 	void	*ghost[12];
 	void	*bush;
@@ -82,15 +82,15 @@ int		ft_read(int fd, char **to_read, char **buffer, char **line);
 char	*ft_line(char **line, char **to_read);
 
 //***********************CHECKING***********************
-int	line_numb(char **map);
-int	col_numb(char **map);
+int		line_numb(char **map);
+int		col_numb(char **map);
 void	ft_putnbr(int nb);
-int	map_check(char **map, t_solong *s);
-int	is_rect(char **map);
-int	ft_strlen2(char *str);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		map_check(char **map, t_solong *s, int i, int j);
+int		is_rect(char **map);
+int		ft_strlen2(char *str);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup2(const char *s);
-int	name_check(char *arg);
+int		name_check(char *arg);
 char	**map_create(char **argv);
 void	free_tab(char **tab);
 char	*ft_itoa(int n);
@@ -99,30 +99,30 @@ char	*ft_itoa(int n);
 void	put_image(t_solong *s);
 int		safe_image(t_solong *s);
 int		fill_map(t_solong *s);
-void 	count_check(int i, int j, t_solong *s);
+void	count_check(int i, int j, t_solong *s);
 void	init_value(t_solong *s);
 int		safe_image(t_solong *s);
 
 //*****************BUCK_MOVES**************************
-int    key_act(int key, t_solong *s);
-void 	move_up(t_solong *s);
-void 	move_down(t_solong *s);
-void 	move_left(t_solong *s);
-void 	move_right(t_solong *s);
+int		key_act(int key, t_solong *s);
+void	move_up(t_solong *s);
+void	move_down(t_solong *s);
+void	move_left(t_solong *s);
+void	move_right(t_solong *s);
 
-int 	close_window(t_solong *s);
-int    error_msg(char *str);
+int		close_window(t_solong *s);
+int		error_msg(char *str);
 int		len_n(char *str);
-int  	is_in(char c, char *str);
+int		is_in(char c, char *str);
 
 //**************DISPLAYS+GHOST**************************
 void	buck_display(t_solong *s);
 void	ghost_display(t_solong *s);
 void	rand_move(t_solong *s, int i, int j);
-void    ghost_up(t_solong *s, int i, int j);
-void    ghost_down(t_solong *s, int i, int j);
-void    ghost_left(t_solong *s, int i, int j);
-void    ghost_right(t_solong *s, int i, int j);
+void	ghost_up(t_solong *s, int i, int j);
+void	ghost_down(t_solong *s, int i, int j);
+void	ghost_left(t_solong *s, int i, int j);
+void	ghost_right(t_solong *s, int i, int j);
 void	ghost_display_up(t_solong *s, int i, int j);
 void	ghost_display_down(t_solong *s, int i, int j);
 void	ghost_display_left(t_solong *s, int i, int j);
@@ -130,7 +130,7 @@ void	ghost_display_right(t_solong *s, int i, int j);
 void	buck_display(t_solong *s);
 void	move_entity(t_solong *s, int i, int j, int g);
 void	game_over(t_solong *s);
-void    mvt_display(t_solong *s);
+void	mvt_display(t_solong *s);
 char	*ft_strjoin2(char *s1, char *s2);
 
 #endif
