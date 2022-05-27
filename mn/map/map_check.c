@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 18:07:09 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/16 20:21:18 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/18 16:14:32 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,8 @@ int	min_map(t_solong *s)
 	return (1);
 }
 
-int	map_check(char **map, t_solong *s)
+int	map_check(char **map, t_solong *s, int i, int j)
 {
-	int	i;
-	int	j;
-
-	i = 0;
 	while (map[i])
 	{
 		j = 0;

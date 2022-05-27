@@ -6,7 +6,7 @@
 /*   By: llepiney <llepiney@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 17:27:48 by llepiney          #+#    #+#             */
-/*   Updated: 2022/05/16 20:41:37 by llepiney         ###   ########.fr       */
+/*   Updated: 2022/05/18 16:13:44 by llepiney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	s.map = map_create(argv);
 	if (!s.map)
 		return (error_msg("Error : wrong or empty file.\n"));
-	if (!is_rect(s.map) || !map_check(s.map, &s))
+	if (!is_rect(s.map) || !map_check(s.map, &s, 0, 0))
 	{
 		free_tab(s.map);
 		return (0);
